@@ -5,10 +5,11 @@ class SearchBox extends Component  {
 
     constructor(props) {
         super(props)
-        this.onClickHandler = this.onClickHandler.bind(this)
+        this.onSubmitHandler = this.onSubmitHandler.bind(this)
     }
 
-    onClickHandler() {
+    onSubmitHandler(e) {
+        e.preventDefault()
         this.props.searchHandler(this.refs.username.value)
     }
 
@@ -16,7 +17,7 @@ class SearchBox extends Component  {
         const { error } = this.props
 
         return (
-            <Fragment>
+            <form method="post" onSubmit={this.onSubmitHandler}>
                 {error ? 
                     <div>
                         {error}
@@ -31,7 +32,7 @@ class SearchBox extends Component  {
                 <div className="form-input">
                     <input type="submit" value="Search" onClick={this.onClickHandler} />
                 </div>
-            </Fragment>
+            </form>
         )
     }
 
