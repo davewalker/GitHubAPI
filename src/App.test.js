@@ -2,8 +2,14 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders search input', () => {
+  const { getByLabelText } = render(<App />);
+  const inputLabel = getByLabelText(/github username*/i);
+  expect(inputLabel).toBeInTheDocument();
+});
+
+test('renders search button', () => {
   const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const searchForm = getByText(/search/i);
+  expect(searchForm).toBeInTheDocument();
 });
