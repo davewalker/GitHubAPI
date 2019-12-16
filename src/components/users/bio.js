@@ -7,7 +7,23 @@ function Bio(props) {
     return (
         <div>
             <h1>{name}</h1>
-            <img alt={user.name} src={user.avatar_url} width={200} height={200} />
+            <img alt={name} src={user.avatar_url} width={200} height={200} />
+
+            <ul>
+                <li>{user.location}</li>
+                {user.blog ?
+                    <li>
+                        <a className="button" target="_blank" href={user.blog}>
+                            {user.blog}
+                        </a>
+                    </li>
+                : ''}
+                <li>
+                    <a className="button" target="_blank" href={user.html_url}>
+                        View GitHub profile
+                    </a>
+                </li>
+            </ul>
 
             <ul>
                 <li>Followers: {user.followers}</li>
