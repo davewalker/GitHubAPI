@@ -35,15 +35,21 @@ class RepositoryList extends Component {
             <div>
                 <h2>Repos</h2>
 
-                <ul>
-                    {items.map((item, k) => (
-                        <li key={k}>
-                            <a href={item.html_url} target="_blank" rel="noopener noreferrer">
-                                {item.full_name}
-                            </a>
-                        </li>
-                    ))}
-                </ul>
+                {items.length ?
+                    <ul>
+                        {items.map((item, k) => (
+                            <li key={k}>
+                                <a href={item.html_url} target="_blank" rel="noopener noreferrer">
+                                    {item.full_name}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                :
+                    <div>
+                        No repos
+                    </div>
+                }
 
             </div>
         )

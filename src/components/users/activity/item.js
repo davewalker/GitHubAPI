@@ -1,28 +1,35 @@
 import React from 'react'
+import { Functions } from '../../../api'
 
 function ActivityItem(props) {
     const { activity } = props
-    // console.log( props ) 
-
     const commits = activity.payload.commits
 
     return (
-        <div className="activity">
-            <h4>{activity.type} at {activity.created_at}</h4>
+        <div className="activity-list__item">
+            {commits ?
+                <h4>
+                    Pushed {commits.length} commit{commits.length !== 1 ? 's' : ''}
+                </h4>
+            : 
+                <h4>
+                    !!!
+                </h4>
+            }
+
+
+            {/* <h4>Created {commits.length ?  : '0'}</h4> */}
+            <time dateTime={activity.created_at}>{Functions.formatDate(activity.created_at).fromNow()}</time>
 
             { commits ?
-                commits.map((commit, k) => (
-                    <div key={k}>
-                        {commit.message}
-                    </div>
-                ))
+                <ul>
+                    {commits.map((commit, k) => (
+                        <li key={k}>
+                            {commit.message}
+                        </li>
+                    ))}
+                </ul>
             : ''}
-
-            {/* {.map((commit, k) => (
-                <div key={k}>
-                    {commit.message}
-                </div>
-            ))} */}
         </div>
     )
 }

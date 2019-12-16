@@ -1,4 +1,5 @@
 import React from 'react'
+import { Followers } from './'
 
 function Bio(props) {
     const { user } = props
@@ -33,6 +34,8 @@ function Bio(props) {
                 <li>Followers: {user.followers}</li>
                 <li>Following: {user.following}</li>
             </ul>
+
+            <Followers user={user} />
         </div>
     )
 }
