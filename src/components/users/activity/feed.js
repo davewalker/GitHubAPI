@@ -1,10 +1,10 @@
 import React, { Component, Fragment } from 'react'
 import _ from 'lodash'
 
-import { GitHub } from '../../api'
+import { GitHub } from '../../../api'
 import { ActivityItem } from './'
 
-class ActivityList extends Component {
+class ActivityFeed extends Component {
     constructor(props) {
         super(props)
         
@@ -32,20 +32,16 @@ class ActivityList extends Component {
     render() {
         const { feed } = this.state
 
-        if (!feed.length) {
-            return null
-        }
-
         return (
             <Fragment>
                 <h2>Activity</h2>
 
                 {feed.map((item, k) => (
                     <ActivityItem activity={item} key={k} />
-                ))}                
+                ))}
             </Fragment>
         )
     }
 }
 
-export default ActivityList
+export default ActivityFeed

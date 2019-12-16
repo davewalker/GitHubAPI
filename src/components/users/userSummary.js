@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { Bio } from './'
+import { Bio, ActivityFeed, RepositoryList } from './'
 
 class UserSummary extends Component {
     constructor(props) {
@@ -16,7 +16,9 @@ class UserSummary extends Component {
         if (user) {
             return (
                 <Fragment>               
-                    <Bio user={user} /> 
+                    <Bio user={user} />
+                    <RepositoryList user={user} />
+                    <ActivityFeed user={user} />                    
                 </Fragment>
             )
         }
