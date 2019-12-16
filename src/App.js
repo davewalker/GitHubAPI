@@ -35,8 +35,6 @@ class App extends Component {
         ...this.state,
         user: response,
         error: false
-      }, () => {
-        console.log('!!!')
       })
 
     } else {
