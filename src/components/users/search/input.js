@@ -4,7 +4,7 @@ import {
     withRouter
 } from 'react-router-dom'
 
-class SearchBox extends Component  {
+class SearchInput extends Component  {
 
     constructor(props) {
         super(props)
@@ -42,4 +42,4 @@ class SearchBox extends Component  {
 
 }
 
-export default withRouter(SearchBox)
+export default withRouter(SearchInput)
