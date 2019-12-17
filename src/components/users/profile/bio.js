@@ -1,5 +1,5 @@
 import React from 'react'
-import { Followers } from './'
+import { Followers, Avatar } from './'
 
 function Bio(props) {
     const { user } = props
@@ -12,7 +12,7 @@ function Bio(props) {
                 <h2>{user.name}</h2>
             : ''}
 
-            <img alt={name} src={user.avatar_url} width={200} height={200} />
+            <Avatar user={user} size={200} />
 
             <ul>
                 <li>{user.location}</li>
@@ -35,7 +35,7 @@ function Bio(props) {
                 <li>Following: {user.following}</li>
             </ul>
 
-            <Followers user={user} />
+            <Followers user={user.login} />
         </div>
     )
 }
