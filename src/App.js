@@ -8,7 +8,7 @@ import {
 import './App.css'
 
 import { GitHub } from './api'
-import { SearchBox, UserSummary } from './components/users'
+import { SearchInput, UserSummary } from './components/users'
 
 class App extends Component {
 
@@ -56,7 +56,7 @@ class App extends Component {
     return (
       <Router>
         <div className="app">
-          <SearchBox error={error} searchHandler={this.searchUser} />
+          <SearchInput error={error} searchHandler={this.searchUser} />
 
           <Switch>
             <Route path="/:username" children={<UserSummary />} />

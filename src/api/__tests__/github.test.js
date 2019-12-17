@@ -17,6 +17,14 @@ test('/<user>', async () => {
     }))
 })
 
+test('/<fuzzy-search>', async() => {
+    const autoCompleteObject = await GitHub.searchUsers(testUser.login)
+
+    expect(autoCompleteObject).toStrictEqual(expect.objectContaining({
+        total_count: expect.any(Number)
+    }))
+})
+
 test('/<invalid_user>', async() => {
     const expected = {
         message: 'Not Found'
