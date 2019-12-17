@@ -3,7 +3,6 @@ import { Followers, Avatar } from './'
 
 function Bio(props) {
     const { user } = props
-    const name = user.name || user.login
 
     return (
         <div>
