@@ -1,0 +1,15 @@
+.button {
+    background: $primary-color;
+    color: $background-color;
+    border: 0;
+    display: inline-block;
+    font-weight: bold;
+    text-decoration: none;
+
+    min-width: 100px;
+    padding: $base-spacing-unit;
+
+    &:hover {
+        background-color: darken($primary-color, 10);
+    }
+}

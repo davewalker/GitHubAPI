@@ -1,0 +1,23 @@
+.search-input {
+    background-color: $panel-bg-color;
+    min-height: 40vh;
+    padding: $base-spacing-unit;
+    text-align: center;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    &__field {
+        display: block;
+        position: relative;
+    }
+
+
+    input {
+        &:focus + .autocomplete {
+            display: block;
+        }
+    }
+}

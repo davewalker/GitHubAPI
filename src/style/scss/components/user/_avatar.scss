@@ -1,0 +1,13 @@
+.avatar {
+    border: solid 2px $panel-bg-color;
+    display: inline-block;
+
+    &,
+    img {
+        border-radius: 50%;
+    }
+
+    img {
+        display: block;
+    }
+}
