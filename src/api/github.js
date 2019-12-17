@@ -17,9 +17,23 @@ class GitHub {
             })
     }
 
+    static searchUsers(q) {
+        return fetch(`${API_URL}/search/users?q=${q}&client_id=${clientId}&client_secret=${clientSecret}`)
+            .then(response => response.json())
+            .then(json => {
+                return json
+            })
+            .catch(error => {
+                console.log( error )
+            })
+    }
+
     static getRecentActivity(user) {
         return fetch(`${API_URL}/users/${user}/events?client_id=${clientId}&client_secret=${clientSecret}`)
             .then(response => response.json())
+            .then(json => {
+                return json
+            })
             .catch(error => {
                 console.log( error )
             })
@@ -28,6 +42,9 @@ class GitHub {
     static getRepos(user) {
         return fetch(`${API_URL}/users/${user}/repos?client_id=${clientId}&client_secret=${clientSecret}`)
             .then(response => response.json())
+            .then(json => {
+                return json
+            })
             .catch(error => {
                 console.log( error )
             })
