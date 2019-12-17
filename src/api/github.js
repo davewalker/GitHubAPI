@@ -33,6 +33,14 @@ class GitHub {
             })
     }
 
+    static getFollowers(user) {
+        return fetch(`${API_URL}/users/${user}/followers?client_id=${clientId}&client_secret=${clientSecret}`)
+            .then(response => response.json())
+            .catch(error => {
+                console.log( error )
+             })
+    }
+
 }
 
 export default GitHub
