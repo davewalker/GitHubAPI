@@ -3,7 +3,9 @@ import { Functions } from '../../../api'
 
 function ActivityItem(props) {
     const { activity } = props
-    const commits = activity.payload.commits
+    const { commits, description, ref, ref_type } = activity.payload
+
+    console.log( { activity } )
 
     return (
         <div className="activity-list__item">
@@ -13,7 +15,7 @@ function ActivityItem(props) {
                 </h4>
             : 
                 <h4>
-                    !!!
+                    Created {ref} {ref_type} - {description}
                 </h4>
             }
 
