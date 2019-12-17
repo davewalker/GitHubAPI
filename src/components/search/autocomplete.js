@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import _ from 'lodash'
 import { Avatar } from '../users/profile'
 
 class Autocomplete extends Component {
