@@ -34,3 +34,13 @@ test('/<user>/repos', async () => {
     const eventsObj = await GitHub.getRepos(testUser.login)
     expect(eventsObj).toStrictEqual(expect.any(Array))
 })
+
+test('/<user>/followers', async () => {
+    // Octocat should always have followers (should!?)
+    const followersObj = await GitHub.getFollowers(testUser.login)
+    expect(followersObj).toStrictEqual(expect.any(Array))
+
+    // Followers should have an object containing an ID
+    const firstFollower = followersObj[0]
+    expect(firstFollower).toStrictEqual(expect.objectContaining({ id: expect.any(Number) }))
+})

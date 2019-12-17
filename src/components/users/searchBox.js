@@ -1,16 +1,20 @@
 import React, { Component } from 'react'
 import 'react-dom'
+import {
+    withRouter
+} from 'react-router-dom'
 
 class SearchBox extends Component  {
 
     constructor(props) {
         super(props)
+
         this.onSubmitHandler = this.onSubmitHandler.bind(this)
     }
 
     onSubmitHandler(e) {
         e.preventDefault()
-        this.props.searchHandler(this.refs.username.value)
+        this.props.history.push(`${this.refs.username.value}`)
     }
 
     render() {
@@ -30,7 +34,7 @@ class SearchBox extends Component  {
                 </div>
 
                 <div className="form-input">
-                    <input type="submit" value="Search" onClick={this.onClickHandler} />
+                    <input type="submit" value="Search" />
                 </div>
             </form>
         )
@@ -38,4 +42,4 @@ class SearchBox extends Component  {
 
 }
 
-export default SearchBox
+export default withRouter(SearchBox)

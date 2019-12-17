@@ -36,9 +36,20 @@ class ActivityFeed extends Component {
             <Fragment>
                 <h2>Activity</h2>
 
-                {feed.map((item, k) => (
-                    <ActivityItem activity={item} key={k} />
-                ))}
+
+                {feed.length ? 
+                    <ul className="activity-list">
+                        {feed.map((item, k) => (
+                            <li key={k}>
+                                <ActivityItem activity={item} />
+                            </li>
+                        ))}
+                    </ul>
+                :
+                    <div>
+                        No recent activity
+                    </div>
+                }
             </Fragment>
         )
     }

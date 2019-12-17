@@ -1,5 +1,11 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from 'react'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom"
+
+import './App.css'
 
 import { GitHub } from './api'
 import { SearchBox, UserSummary } from './components/users'
@@ -45,17 +51,19 @@ class App extends Component {
   
   
   render() {
-    const { user, error } = this.state
+    const { error } = this.state
 
     return (
-      <div className="app">
-        <SearchBox error={error} searchHandler={this.searchUser} />
-        
-        {user ? 
-          <UserSummary user={user} /> 
-        : ''}
+      <Router>
+        <div className="app">
+          <SearchBox error={error} searchHandler={this.searchUser} />
 
-      </div>
+          <Switch>
+            <Route path="/:username" children={<UserSummary />} />
+          </Switch>
+
+        </div>
+      </Router>
     )
   }
 }
