@@ -18,7 +18,7 @@ class GitHub {
     }
 
     static searchUsers(q) {
-        return fetch(`${API_URL}/search/users?q=${q}&client_id=${clientId}&client_secret=${clientSecret}`)
+        return fetch(`${API_URL}/search/users?q=${q}&per_page=10&client_id=${clientId}&client_secret=${clientSecret}`)
             .then(response => response.json())
             .then(json => {
                 return json
