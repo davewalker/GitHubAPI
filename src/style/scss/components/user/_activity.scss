@@ -1,0 +1,21 @@
+.activity-list {
+
+    &__item {
+        background-color: $panel-bg-color;
+        margin-bottom: $base-spacing-unit;
+        padding: $base-spacing-unit;
+    }
+
+    &__item-header {
+        display: flex;
+        font-weight: bold;
+
+        svg {
+            margin-right: 0.25em;
+        }
+    }
+
+    ul {
+        margin-top: $base-spacing-unit;
+    }
+}

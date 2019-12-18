@@ -16,7 +16,7 @@ class Autocomplete extends Component {
                     {items.map((item, k) => (
                         <li className="autocomplete__list-item" key={k} onClick={this.props.onSelect.bind(this, item.login)}>
                             <Avatar user={item} size={24} />
-                            {item.login}
+                            <span>{item.login}</span>
                         </li>
                     ))}
                 </ul>

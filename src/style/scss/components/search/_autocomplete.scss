@@ -29,6 +29,14 @@
             margin-right: 0.5em;
         }
 
+        a {
+            display: block;
+        }
+
+        span {
+            pointer-events: none;
+        }
+
         &:hover {
             background-color: $panel-bg-color;
         }
