@@ -45,20 +45,18 @@ class Followers extends Component {
 
         return (
             <div className="followers">
-                Followers
+                <h3>Followers</h3>
 
                 {items.length > 0 ? 
                     <ul className="followers__list">
                         {items.map((item, k) => (
-                            <li key={k}>
-                                <Avatar user={item} />
+                            <li className="followers__list-item" key={k}>
+                                <Avatar user={item} size={50} />
                             </li>
                         ))}
                     </ul>
                 :
-                    <div>
-                        No followers
-                    </div>
+                    <p>No followers</p>
                 }
                 
             </div>

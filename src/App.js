@@ -1,14 +1,10 @@
 import React, { Component } from 'react'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom"
-
-import './App.css'
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 
 import { GitHub } from './api'
-import { SearchInput, UserSummary } from './components/users'
+import { SearchInput } from './components/search'
+import { UserSummary } from './components/users'
+import './style/scss/app.scss'
 
 class App extends Component {
 
@@ -56,12 +52,15 @@ class App extends Component {
     return (
       <Router>
         <div className="app">
-          <SearchInput error={error} searchHandler={this.searchUser} />
+          <header className="panel panel--bordered">
+            <div className="panel__col">
+              <SearchInput error={error} searchHandler={this.searchUser} />
+            </div>
+          </header>
 
           <Switch>
             <Route path="/:username" children={<UserSummary />} />
           </Switch>
-
         </div>
       </Router>
     )

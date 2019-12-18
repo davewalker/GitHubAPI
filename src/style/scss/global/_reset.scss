@@ -1,0 +1,16 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    background-color: $panel-bg-color;
+}
+
+a {
+    color: $primary-color;
+
+    &:hover,
+    &:visited {
+        color: darken($primary-color, 20);
+    }
+}

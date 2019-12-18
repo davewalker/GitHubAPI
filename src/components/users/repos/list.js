@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import _ from 'lodash'
 import { GitHub } from '../../../api'
 
+import { ReactComponent as FolderIcon } from '../../../icons/folder.svg'
+
 class RepositoryList extends Component {
     constructor(props) {
         super(props)
@@ -36,9 +38,10 @@ class RepositoryList extends Component {
                 <h2>Repos</h2>
 
                 {items.length ?
-                    <ul>
+                    <ul className="unlist icon-list">
                         {items.map((item, k) => (
                             <li key={k}>
+                                <FolderIcon width={16} height={16} color={'#484848'} />
                                 <a href={item.html_url} target="_blank" rel="noopener noreferrer">
                                     {item.full_name}
                                 </a>

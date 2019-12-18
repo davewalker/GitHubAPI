@@ -1,0 +1,52 @@
+.search-input {
+    @include respond-min($bp-tablet) {
+        align-items: center;
+        display: flex;
+    }
+
+    &__row {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        max-width: 800px;
+        width: 100%;
+    }
+
+    &__field {
+        flex: 1;
+
+        display: inline-block;
+        margin: 0 0 $base-spacing-unit;
+        position: relative;
+        width: 100%;
+
+        &--submit {
+            flex: 0;
+        }
+
+        @include respond-min($bp-tablet) {
+            margin-bottom: 0;
+
+            
+        }
+    }
+
+    &__heading {
+        display: flex;
+        align-items: center;
+        margin-right: $base-spacing-unit;
+
+        svg {
+            margin-right: 0.5em;
+        }
+    }
+
+    input {
+        width: 100%;
+
+        &:focus + .autocomplete {
+            display: block;
+        }
+    }
+}

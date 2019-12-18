@@ -1,0 +1,29 @@
+.visibly-hidden {
+    display: none;
+    visibility: hidden;
+}
+
+.unlist {
+    @include unlist;
+}
+
+.icon-list {
+    li {
+        display: flex;
+        margin-bottom: 0.25em;
+
+        > * {
+            &:not(:last-child) {
+                margin-right: 0.25em;
+            }
+        }
+    }
+}
+
+.full-width {
+    width: 100%;
+}
+
+.no-bm {
+    margin-bottom: 0;
+}
