@@ -5,7 +5,7 @@ import { ReactComponent as ActivityIcon } from '../../../icons/activity.svg'
 function ActivityItem(props) {
     const { activity } = props
     const { type, repo } = activity
-    const { action, commits, description } = activity.payload
+    const { action, commits } = activity.payload
 
     /**
      * This is what we would normally do. However, I've just checked the list of event types from the API docs(!see 49 event types!)
