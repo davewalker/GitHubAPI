@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import 'react-dom'
 import { withRouter } from 'react-router-dom'
 import _ from 'lodash'
@@ -11,6 +11,7 @@ class SearchInput extends Component  {
         super(props)
 
         this.state = {
+            defaultValue: '',
             searchSuggestions: [],
             isAutocompleteVisible: false
         }
@@ -19,6 +20,16 @@ class SearchInput extends Component  {
         this.onChangeHandler = this.onChangeHandler.bind(this)
         this.onSelectHandler = this.onSelectHandler.bind(this)
         this.onBlurHandler = this.onBlurHandler.bind(this)
+    }
+
+    
+
+    componentDidUpdate(prevProps) {
+        if (!_.isEqual(prevProps, this.props)) {
+            this.setState({
+                defaultValue: this.props.defaultValue
+            })
+        }
     }
 
     onChangeHandler = _.debounce(async (e) => {
@@ -64,29 +75,47 @@ class SearchInput extends Component  {
 
     render() {
         const { searchSuggestions, isAutocompleteVisible } = this.state
-        const { error } = this.props
+        const { error, defaultValue, title } = this.props
 
         return (
-            <form className="search-input" method="post" onSubmit={this.onSubmitHandler}>
-                {error ? 
-                    <div>
-                        {error}
-                    </div>
-                : ''}
-                
-                <div className="search-input__field">
-                    <label className="visibly-hidden" htmlFor="username">GitHub Username*</label>
-                    <input size={50} ref="username" type="search" name="username" id="username" defaultValue="" required placeholder="Start typing a username" onChange={this.onChangeHandler} onBlur={this.onBlurHandler} />
-                    <Autocomplete isVisible={isAutocompleteVisible} items={searchSuggestions} onSelect={this.onSelectHandler} />
-                </div>
+            <Fragment>
+                <form className="search-input" method="post" onSubmit={this.onSubmitHandler}>
+                    {error ? 
+                        <div>
+                            {error}
+                        </div>
+                    : ''}
 
-                <div className="search-input__field">
-                    <input className="button" type="submit" value="Search" />
-                </div>
-            </form>
+                    {title ? 
+                        <div className="search-input__heading">
+                            <h1>{title}</h1>
+                        </div>
+                    : ''}
+                        
+                    <div className="search-input__row">
+                        <div className="search-input__field">
+                            <label className="visibly-hidden" htmlFor="username">GitHub Username*</label>
+                            <input ref="username" type="search" name="username" id="username" defaultValue={defaultValue} required placeholder="Start typing a username" onChange={this.onChangeHandler} onBlur={this.onBlurHandler} />
+                            <Autocomplete isVisible={isAutocompleteVisible} items={searchSuggestions} onSelect={this.onSelectHandler} />
+                        </div>
+
+                        <div className="search-input__field search-input__field--submit">
+                            <input className="button" type="submit" value="Search" />
+                        </div>
+                    </div>
+                </form>
+            </Fragment>
         )
     }
 
+}
+
+SearchInput.propTypes = {
+}
+
+SearchInput.defaultProps = {
+    defaultValue: '',
+    title: 'Find information about any GitHub user...'
 }
 
 export default withRouter(SearchInput)

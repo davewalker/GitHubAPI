@@ -1,0 +1,33 @@
+.user-bio {
+    &__summary {
+        text-align: center;
+    }
+
+    &__name {
+        margin: $base-spacing-unit 0;
+    }
+
+    &__numbers,
+    &__ctas {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    &__numbers {
+        margin-top: $base-spacing-unit;
+
+        > * {
+            margin: 0 0.25em;
+        }
+    }
+
+    &__ctas {
+        text-align: center;
+        > * {
+            &:not(:last-child) {
+                margin-bottom: $base-spacing-unit;
+            }
+        }
+    }
+}

@@ -52,12 +52,10 @@ class App extends Component {
     return (
       <Router>
         <div className="app">
-          <SearchInput error={error} searchHandler={this.searchUser} />
-
           <Switch>
             <Route path="/:username" children={<UserSummary />} />
+            <Route exactPath path="/" children={<SearchInput error={error} searchHandler={this.searchUser} />} />
           </Switch>
-
         </div>
       </Router>
     )

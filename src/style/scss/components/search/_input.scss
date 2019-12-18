@@ -1,21 +1,39 @@
 .search-input {
-    background-color: $panel-bg-color;
-    min-height: 40vh;
-    padding: $base-spacing-unit;
-    text-align: center;
+    &__row {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        max-width: 800px;
+        width: 100%;
 
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-
-    &__field {
-        display: block;
-        position: relative;
+        @include respond-min($bp-tablet) {
+            flex-direction: row;
+        }
     }
 
+    &__field {
+        display: inline-block;
+        margin: 0 0 $base-spacing-unit;
+        position: relative;
+        width: 100%;
+
+        @include respond-min($bp-tablet) {
+            margin-bottom: 0;
+
+            &--submit {
+                flex: 0 0 200px;
+            }
+        }
+    }
+
+    &__heading {
+        flex: 0 0 100%;
+    }
 
     input {
+        width: 100%;
+
         &:focus + .autocomplete {
             display: block;
         }

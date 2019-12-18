@@ -2,14 +2,32 @@
     background: $primary-color;
     color: $background-color;
     border: 0;
-    display: inline-block;
+    display: block;
     font-weight: bold;
     text-decoration: none;
+    text-align: center;
+
+    text-overflow: ellipsis;
+    overflow: hidden;
 
     min-width: 100px;
+    max-width: 320px;
     padding: $base-spacing-unit;
 
     &:hover {
         background-color: darken($primary-color, 10);
+    }
+
+    &--secondary {
+        background-color: $background-color;
+        color: $primary-color;
+
+        &:hover {
+            background-color: darken($background-color, 10);
+        }
+    }
+
+    @include respond-min($bp-tablet) {
+        display: inline-block;
     }
 }

@@ -1,0 +1,36 @@
+.panel {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    &--dark {
+        background-color: darken($panel-bg-color, 10);
+        border: solid 2px darken($panel-bg-color, 15);
+    }
+
+    @include respond-min($bp-tablet) {
+        flex-direction: row;
+        width: 100%;
+        
+    }
+
+    &__sidebar,
+    &__col {
+        padding: $base-spacing-unit;
+
+        @include respond-min($bp-tablet) {
+            flex: 1;
+            padding: $base-spacing-unit*2;
+        }
+    }
+
+    &__sidebar {
+        background-color: $primary-color;
+        color: $background-color;
+        flex: 0 1 400px;
+    }
+
+    &__col {
+        flex: 1;
+    }
+}

@@ -5,13 +5,16 @@ import {
 import _ from 'lodash'
 
 import { Bio, ActivityFeed, RepositoryList } from './'
+import { PageSpinner } from '../generic'
 import { GitHub } from '../../api'
+import { SearchInput } from '../search'
 
 class UserSummary extends Component {
     constructor(props) {
         super(props)
         this.state = {
             activity: [],
+            isLoading: true,
             userObj: false
         }        
     }
@@ -34,24 +37,47 @@ class UserSummary extends Component {
                 userObj
             })
         }
+
+        this.setState({
+            isLoading: false
+        })
     }
 
     render() {
-        const { userObj } = this.state
+        const { userObj, isLoading } = this.state
 
         if (userObj) {
             return (
-                <Fragment>               
-                    <Bio user={userObj} />
-                    <RepositoryList user={userObj} />
-                    <ActivityFeed user={userObj} />
+                <Fragment>
+                    <div className="panel">
+                        <div className="panel__sidebar">
+                            <Bio user={userObj} />
+                        </div>
+                        <div className="panel__col">
+                            <RepositoryList user={userObj} />
+                        </div>
+                        <div className="panel__col">
+                            <ActivityFeed user={userObj} />
+                        </div>
+                    </div>
+                    <div class="panel panel--dark">
+                        <div className="panel__col">
+                            <SearchInput defaultValue={userObj.login} />
+                        </div>
+                    </div>
                 </Fragment>
+            )
+        }
+
+        if (isLoading) {
+            return (
+                <PageSpinner />
             )
         }
 
         return (
             <div>
-                User not found
+                <SearchInput error={'User not found, why not try searching again?'} />
             </div>
         )
     }

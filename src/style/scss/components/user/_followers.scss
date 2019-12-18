@@ -1,0 +1,14 @@
+.followers {
+    text-align: center;
+
+    &__list {
+        @include unlist;
+        justify-content: center;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__list-item {
+        margin: $base-spacing-unit/4;
+    }
+}
