@@ -54,10 +54,14 @@ class UserSummary extends Component {
                             <Bio user={userObj} />
                         </div>
                         <div className="panel__col">
-                            <RepositoryList user={userObj} />
-                        </div>
-                        <div className="panel__col">
-                            <ActivityFeed user={userObj} />
+                            <div className="panel">
+                                <div className="panel__col">
+                                    <RepositoryList user={userObj} />
+                                </div>
+                                <div className="panel__col">
+                                    <ActivityFeed user={userObj} />
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="panel panel--dark">
