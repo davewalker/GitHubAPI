@@ -1,17 +1,16 @@
 .panel {
+    background-color: $background-color;
     display: flex;
     flex-direction: column;
     width: 100%;
 
-    &--dark {
-        background-color: darken($panel-bg-color, 10);
-        border: solid 2px darken($panel-bg-color, 15);
+    &--bordered {
+        border: solid 1px $panel-bg-color;
     }
 
     @include respond-min($bp-tablet) {
         flex-direction: row;
         width: 100%;
-        
     }
 
     &__sidebar,
@@ -28,6 +27,7 @@
         background-color: $primary-color;
         color: $background-color;
         flex: 0 1 400px;
+        min-height: 100vh;
     }
 
     &__col {

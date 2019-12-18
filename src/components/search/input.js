@@ -5,6 +5,8 @@ import _ from 'lodash'
 import { GitHub } from '../../api'
 import { Autocomplete } from '.'
 
+import { ReactComponent as GithubLogo } from '../../icons/github.svg'
+
 class SearchInput extends Component  {
 
     constructor(props) {
@@ -88,7 +90,8 @@ class SearchInput extends Component  {
 
                     {title ? 
                         <div className="search-input__heading">
-                            <h1>{title}</h1>
+                            <GithubLogo width="32" height="32" />
+                            <h4 className="no-bm">{title}</h4>
                         </div>
                     : ''}
                         

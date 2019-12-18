@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 
 import { GitHub } from './api'
@@ -52,9 +52,14 @@ class App extends Component {
     return (
       <Router>
         <div className="app">
+          <header className="panel panel--bordered">
+            <div className="panel__col">
+              <SearchInput error={error} searchHandler={this.searchUser} />
+            </div>
+          </header>
+
           <Switch>
             <Route path="/:username" children={<UserSummary />} />
-            <Route exactPath path="/" children={<SearchInput error={error} searchHandler={this.searchUser} />} />
           </Switch>
         </div>
       </Router>

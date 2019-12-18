@@ -1,7 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import {
-    withRouter
-} from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import _ from 'lodash'
 
 import { Bio, ActivityFeed, RepositoryList } from './'
@@ -62,11 +60,6 @@ class UserSummary extends Component {
                                     <ActivityFeed user={userObj} />
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="panel panel--dark">
-                        <div className="panel__col">
-                            <SearchInput defaultValue={userObj.login} />
                         </div>
                     </div>
                 </Fragment>
