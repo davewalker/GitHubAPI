@@ -17,5 +17,10 @@
 
     ul {
         margin-top: $base-spacing-unit;
+
+        li {
+            word-break: break-word;
+
+        }
     }
 }
