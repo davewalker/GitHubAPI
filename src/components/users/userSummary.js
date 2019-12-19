@@ -32,13 +32,16 @@ class UserSummary extends Component {
         if (userObj.id) {
             this.setState({
                 ...this.state,
-                userObj
+                userObj,
+                isLoading: false
+            })
+        } else {
+            this.setState({
+                ...this.state,
+                userObj: false,
+                isLoading: false
             })
         }
-
-        this.setState({
-            isLoading: false
-        })
     }
 
     render() {
@@ -73,8 +76,12 @@ class UserSummary extends Component {
         }
 
         return (
-            <div>
-                <SearchInput error={'User not found, why not try searching again?'} />
+            <div className="panel panel--transparent">
+                <div className="panel__col">
+                    <div className="error">
+                        User not found, why not try searching again?
+                    </div>
+                </div>
             </div>
         )
     }

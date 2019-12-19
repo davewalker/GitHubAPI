@@ -8,6 +8,10 @@
         flex-wrap: wrap;
     }
 
+    &--transparent {
+        background-color: transparent;
+    }
+
     &--bordered {
         border: solid 1px $panel-bg-color;
     }
