@@ -5,7 +5,6 @@ import _ from 'lodash'
 import { Bio, ActivityFeed, RepositoryList } from './'
 import { PageSpinner } from '../generic'
 import { GitHub } from '../../api'
-import { SearchInput } from '../search'
 
 class UserSummary extends Component {
     constructor(props) {
