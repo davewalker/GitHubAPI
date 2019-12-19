@@ -30,8 +30,11 @@
     &__sidebar {
         background-color: $primary-color;
         color: $background-color;
-        flex: 0 1 400px;
-        min-height: 100vh;
+
+        @include respond-min($bp-tablet) {
+            flex: 0 1 400px;
+            min-height: 100vh;
+        }
     }
 
     &__col {
