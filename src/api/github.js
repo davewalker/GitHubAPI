@@ -5,7 +5,7 @@ class GitHub {
 
     static generateApiCredentials() {
         const clientId = process.env.REACT_APP_GITHUB_CLIENT_ID
-        const clientSecret = process.env.REACT_APP_GITHUB_CLIENT_ID
+        const clientSecret = process.env.REACT_APP_GITHUB_CLIENT_SECRET
 
         return `client_id=${clientId}&client_secret=${clientSecret}`
         
