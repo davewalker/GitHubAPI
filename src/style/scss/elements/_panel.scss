@@ -4,6 +4,10 @@
     flex-direction: column;
     width: 100%;
 
+    &--wrapped {
+        flex-wrap: wrap;
+    }
+
     &--bordered {
         border: solid 1px $panel-bg-color;
     }
@@ -31,6 +35,8 @@
     }
 
     &__col {
-        flex: 1;
+        @include respond-min($bp-tablet) {
+            flex: 1 0 400px;
+        }
     }
 }
