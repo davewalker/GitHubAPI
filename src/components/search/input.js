@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import 'react-dom'
-import { withRouter } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import _ from 'lodash'
 import { GitHub } from '../../api'
 import { Autocomplete } from '.'
@@ -90,7 +90,9 @@ class SearchInput extends Component  {
 
                     {title ? 
                         <div className="search-input__heading">
-                            <GithubLogo width="32" height="32" />
+                            <Link to="/">
+                                <GithubLogo width="32" height="32" />
+                            </Link>
                             <h4 className="no-bm">{title}</h4>
                         </div>
                     : ''}

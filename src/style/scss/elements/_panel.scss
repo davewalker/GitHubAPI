@@ -4,6 +4,10 @@
     flex-direction: column;
     width: 100%;
 
+    &--wrapped {
+        flex-wrap: wrap;
+    }
+
     &--bordered {
         border: solid 1px $panel-bg-color;
     }
@@ -26,11 +30,16 @@
     &__sidebar {
         background-color: $primary-color;
         color: $background-color;
-        flex: 0 1 400px;
-        min-height: 100vh;
+
+        @include respond-min($bp-tablet) {
+            flex: 0 1 400px;
+            min-height: 100vh;
+        }
     }
 
     &__col {
-        flex: 1;
+        @include respond-min($bp-tablet) {
+            flex: 1 0 400px;
+        }
     }
 }
