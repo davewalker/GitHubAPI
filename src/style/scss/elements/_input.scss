@@ -1,6 +1,15 @@
 input {
-    appearance: none;
+    
+    
     border: solid 1px $panel-bg-color;
+    border-radius: 0;
+    box-shadow: none;
     font-size: 16px; // Prevents user zoom on focus
     padding: $base-spacing-unit/2;
+
+    &,
+    &[type=search] {
+        -webkit-appearance: none;
+        appearance: none;
+    }
 }
