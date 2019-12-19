@@ -26,16 +26,19 @@
         }
 
         @include respond-min($bp-tablet) {
-            margin-bottom: 0;
-
-            
+            margin-bottom: 0;            
         }
     }
 
     &__heading {
         display: flex;
         align-items: center;
+        margin-bottom: $base-spacing-unit/2;
         margin-right: $base-spacing-unit;
+
+        @include respond-min($bp-tablet) {
+            margin-bottom: 0;
+        }
 
         svg {
             margin-right: 0.5em;

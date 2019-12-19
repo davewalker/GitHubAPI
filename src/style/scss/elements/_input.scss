@@ -1,3 +1,5 @@
 input {
+    appearance: none;
+    border: solid 1px $panel-bg-color;
     padding: $base-spacing-unit/2;
 }
