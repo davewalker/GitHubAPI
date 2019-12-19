@@ -45,9 +45,6 @@ class GitHub {
     }
 
     static getRepos(user) {
-        const clientId = process.env.REACT_APP_GITHUB_CLIENT_ID
-        const clientSecret = process.env.REACT_APP_GITHUB_CLIENT_ID
-
         return fetch(`${API_URL}/users/${user}/repos?${this.generateApiCredentials()}`)
             .then(response => response.json())
             .then(json => {
